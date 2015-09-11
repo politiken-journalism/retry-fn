@@ -39,7 +39,7 @@ Reference
     spaced retries.
 * Function to attempt. Expecting the format `function(callback) { /* ... */ }`.
   If your function takes any other arguments, consider binding it or wrapping it.
-  See [`examples/hyperquest.js`](examples/hyperquest.js)
+  See [`example/hyperquest.js`](example/hyperquest.js)
 * Callback which is called on success or when all retries have been exhausted.
 
 Comes with three timeout functions builtin:
