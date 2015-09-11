@@ -1,0 +1,40 @@
+{
+  "name": "retry-fn",
+  "version": "1.0.0",
+  "description": "A more functional retry function",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "is-fn": "^1.0.0"
+  },
+  "devDependencies": {
+    "hyperquest": "^1.2.0",
+    "standard": "^5.2.2",
+    "tape": "^4.2.0"
+  },
+  "scripts": {
+    "pretest": "standard",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/politiken-journalism/retry-fn.git"
+  },
+  "keywords": [
+    "retry",
+    "fn",
+    "exponential",
+    "fibbonaci",
+    "lenardo",
+    "attempt"
+  ],
+  "author": "Emil Bay <emil.bay@pol.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/politiken-journalism/retry-fn/issues"
+  },
+  "homepage": "https://github.com/politiken-journalism/retry-fn#readme"
+}
