@@ -2,6 +2,7 @@
 
 var debug = require('debug')('retry-fn')
 var isFn = require('is-fn')
+var once = require('once')
 
 function fnWrap (fnOrConst) {
   if (!isFn(fnOrConst)) return function () { return fnOrConst }
@@ -23,7 +24,7 @@ module.exports = function retry (opts, fn, done) {
   var coolDown = fnWrap(opts.timeout)
   var id = (Math.random() * 1e17).toString(32)
 
-  setTimeout(fn, 0, attempt)
+  setTimeout(fn, 0, once(attempt))
   debug('starting %s', id)
   return
 
@@ -32,7 +33,7 @@ module.exports = function retry (opts, fn, done) {
       if (++retryCnt >= opts.retries) return done.call(done, err)
 
       debug('errored %s', id)
-      return setTimeout(fn, coolDown(retryCnt), attempt)
+      return setTimeout(fn, coolDown(retryCnt), once(attempt))
     }
 
     debug('succeeded %s', id)

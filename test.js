@@ -128,6 +128,20 @@ test('retry -1 should try once, then succeed', function (assert) {
   })
 })
 
+test('done callback only fires once', function (assert) {
+  let callCnt = 0
+  function fn (cb) {
+    cb(null, callCnt++)
+    cb(null, callCnt++)
+  }
+
+  retry(1, fn, function (err, res) {
+    assert.error(err)
+    assert.equal(res, 0)
+    assert.end()
+  })
+})
+
 // Test timeout functions
 test('Fib sequence', function (assert) {
   const f = retry.fib(100)
